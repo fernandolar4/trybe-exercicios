@@ -107,13 +107,47 @@ let basket = [
   "Uva",
 ];
 
+// for..of ao iterar um array mostra o elemento
+// for..in mostra seu index
+
+let fullBasket = {};
+
+let contaFrutas = (basket) => {
+  for (let fruta of basket) {
+    if (fullBasket[fruta]) {
+      fullBasket[fruta] += 1;
+    } else {
+      fullBasket[fruta] = 1;
+    }
+  }
+  return fullBasket;
+};
+console.log(contaFrutas(basket));
+
+let sumario = [];
+
+for (fruit in fullBasket) {
+  let message = `${fullBasket[fruit]} ${fruit}`;
+  if (fullBasket[fruit] > 1) message += "s";
+  sumario.push(message);
+}
+
+// let sumario2 = "Sua cesta possui: ";
+// for (fruit in fullBasket) {
+//   let message = `${fullBasket[fruit]} ${fruit}s, `;
+//   sumario2 += message;
+// }
+
+console.log(`Sua cesta possui: ${sumario.join(", ")}.`);
+// console.log(sumario2);
+
 // 🚀 Bônus – Organização de lições
 
 // Com o uso do objeto (allLessons) obtido nos exercícios anteriores, crie uma função para contar o número de estudantes que assistiram às aulas de Matemática.
 
 // Com o uso do objeto (allLessons) obtido nos exercícios anteriores, crie uma função que retorne um objeto que represente o relatório da pessoa instrutora, as aulas ministradas e o número total de estudantes. A saída deverá ser a seguinte:
 
-console.log(createReport(allLessons, "Maria Clara"));
+// console.log(createReport(allLessons, "Maria Clara"));
 /* {
     professor: 'Maria Clara',
     aulas: [ 'Matemática', 'Matemática' ],

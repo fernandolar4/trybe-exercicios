@@ -7,10 +7,9 @@
 //     Copie o código a seguir e rode-o para verificar sua saída.
 
 function imprimeIdade() {
-  for (var idade = 30; idade <= 40; idade += 1) {
+  for (let idade = 30; idade <= 40; idade += 1) {
     console.log("Idade dentro do for:", idade);
   }
-  console.log("Idade fora do for:", idade); // retire essa linha ao implementar o tipo de variável correta.
 }
 imprimeIdade();
 
@@ -19,7 +18,7 @@ imprimeIdade();
 // Copie o código a seguir e rode-o para verificar sua saída.
 
 // Executando esse código, recebe-se um erro `TypeError: Assignment to constant variable.`
-const pessoa = {
+let pessoa = {
   nome: "Henri",
   idade: 20,
 };
@@ -34,7 +33,7 @@ console.log("Idade:", pessoa.idade);
 
 // Copie o código a seguir e rode-o para verificar sua saída.
 
-const favoriteFood = "Lasanha";
+let favoriteFood = "Lasanha";
 favoriteFood = "Hambúrguer";
 console.log(favoriteFood);
 
@@ -46,7 +45,7 @@ const name = "Adriana";
 
 const lastName = "Soares";
 
-console.log("Olá" + "," + name + " " + lastName + "!");
+console.log(`Olá ${name} ${lastName}, seja bem vinda`);
 
 function soma(a, b) {
   let resultado = a + b;
@@ -58,7 +57,8 @@ let a = 3;
 
 let b = 5;
 
-console.log("O resultado da soma de " + a + " + " + b + " é: " + soma(a, b));
+// console.log("O resultado da soma de " + a + " + " + b + " é: " + soma(a, b));
+console.log(`O resultado da soma de ${a} + ${b} é: ${soma(a, b)} `);
 
 // 🚀 Modifique a estrutura das funções a seguir para que elas sejam arrow functions.
 
@@ -66,20 +66,26 @@ console.log("O resultado da soma de " + a + " + " + b + " é: " + soma(a, b));
 
 // Copie o código a seguir.
 
-function numeroAleatorio() {
-  return Math.random();
-}
+// function numeroAleatorio() {
+//   return Math.random();
+// }
+// console.log(numeroAleatorio());
+
+let numeroAleatorio = () => Math.random();
 console.log(numeroAleatorio());
 
 // 🚀 Transforme a função hello em uma arrow function.
 
 // Copie o código a seguir.
 
-function hello(nome) {
-  return `Olá, ${nome}!`;
-}
+// function hello(nome) {
+//   return `Olá, ${nome}!`;
+// }
+
+let hello = (nome) => `Olá, ${nome}!`;
 
 let nome = "Ivan";
+let sobrenome = "Pires";
 
 console.log(hello(nome));
 
@@ -87,11 +93,12 @@ console.log(hello(nome));
 
 // Copie o código a seguir.
 
-function nomeCompleto(nome, sobrenome) {
-  return `${nome} ${sobrenome}`;
-}
-// let nome = "Ivan";
-let sobrenome = "Pires";
+// function nomeCompleto(nome, sobrenome) {
+//   return `${nome} ${sobrenome}`;
+// }
+
+let nomeCompleto = (nome, sobrenome) => `${nome} ${sobrenome}`;
+
 console.log(nomeCompleto(nome, sobrenome));
 
 // 🚀 Altere a expressão if/else utilizando ternary operator.
@@ -100,12 +107,18 @@ console.log(nomeCompleto(nome, sobrenome));
 
 let speed = 90;
 
+// const speedCar = (speed) => {
+//   if (speed >= 120) {
+//     return `Você ultrapassou o limite de velocidade`;
+//   } else {
+//     return `Você está na velocidade permitida`;
+//   }
+// };
+
 const speedCar = (speed) => {
-  if (speed >= 120) {
-    return `Você ultrapassou o limite de velocidade`;
-  } else {
-    return `Você está na velocidade permitida`;
-  }
+  return speed >= 120
+    ? `Você ultrapassou o limite de velocidade`
+    : `Você está na velocidade permitida`;
 };
 
 console.log(speedCar(speed));
